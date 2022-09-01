@@ -1,0 +1,25 @@
+.user__item {
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.user__icon {
+  border-radius: 50%;
+  height: 3rem;
+  width: 3rem;
+}
+.user__data {
+  overflow-wrap: break-word;
+  width: 70%;
+}
+.user__email {
+  font-size: 0.8rem;
+  color: gray;
+}
+.user__status {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: gray;
+  cursor: pointer;
+}

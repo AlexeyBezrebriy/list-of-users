@@ -1,0 +1,4 @@
+.users__table {
+  overflow-y: auto;
+  height: 80%;
+}
