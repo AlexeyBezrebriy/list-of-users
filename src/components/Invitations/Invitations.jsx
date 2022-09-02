@@ -1,10 +1,11 @@
 import Users from "../Users/Users"
 import "./Invitations.css"
+import Success from "./../Success/Success"
 
 function Invitations() {
   return (
     <div className="invitations__container">
-      <input
+      {/* <input
         className="search-bar"
         type="search"
         placeholder="Search user"
@@ -12,7 +13,8 @@ function Invitations() {
         required
       />
       <Users />
-      <button className="invitations__submit">Send invitation</button>
+      <button className="invitations__submit button">Send invitation</button> */}
+      <Success />
     </div>
   )
 }
