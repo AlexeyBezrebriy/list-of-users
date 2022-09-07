@@ -7,6 +7,7 @@ function Invitations() {
 
   const [users, setUsers] = useState([])
   const [isLoading, setLoading] = useState(true)
+  const [searchValue, setSearchValue] = useState("")
 
   useEffect(() => {
     fetch(url)
@@ -16,16 +17,25 @@ function Invitations() {
       .finally(() => setLoading(false))
   }, [])
 
+  function onChangeSearchValue(event) {
+    setSearchValue(event.target.value.split(" ").join("").toLowerCase())
+  }
+
   return (
     <div className="invitations__container">
       <input
         className="search-bar"
         type="search"
+        onChange={onChangeSearchValue}
         placeholder="Search user"
         autoFocus
         required
       />
-      <Users usersData={users} />
+      <Users
+        usersData={users}
+        isLoading={isLoading}
+        searchValue={searchValue}
+      />
       <button className="invitations__submit button">Send invitation</button>
       {/* <Success /> */}
     </div>
