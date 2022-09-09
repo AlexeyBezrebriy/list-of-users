@@ -6,6 +6,7 @@ function Invitations() {
   const url = "https://reqres.in/api/users?page=2"
 
   const [users, setUsers] = useState([])
+  const [invites, setInvites] = useState([])
   const [isLoading, setLoading] = useState(true)
   const [searchValue, setSearchValue] = useState("")
 
@@ -19,6 +20,14 @@ function Invitations() {
 
   function onChangeSearchValue(event) {
     setSearchValue(event.target.value.split(" ").join("").toLowerCase())
+  }
+
+  function onClickInvite(userId) {
+    if (invites.includes(userId)) {
+      setInvites((prev) => prev.filter((id) => id !== userId))
+    } else {
+      setInvites([...invites, userId])
+    }
   }
 
   return (
@@ -35,6 +44,8 @@ function Invitations() {
         usersData={users}
         isLoading={isLoading}
         searchValue={searchValue}
+        invites={invites}
+        onClick={onClickInvite}
       />
       <button className="invitations__submit button">Send invitation</button>
       {/* <Success /> */}

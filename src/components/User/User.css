@@ -10,6 +10,7 @@
   width: 3rem;
 }
 .user__data {
+  margin-left: 5px;
   overflow-wrap: break-word;
   width: 70%;
 }
@@ -18,8 +19,5 @@
   color: gray;
 }
 .user__status {
-  font-size: 1.7rem;
-  font-weight: bold;
-  color: gray;
   cursor: pointer;
 }

@@ -3,7 +3,7 @@ import User from "./../User/User"
 import Loader from "./Loader"
 import "./Users.css"
 
-const Users = ({ usersData, isLoading, searchValue }) => {
+const Users = ({ usersData, isLoading, searchValue, onClick, invites }) => {
   function displayUser(usersData) {
     return usersData
       .filter((obj) => {
@@ -14,7 +14,14 @@ const Users = ({ usersData, isLoading, searchValue }) => {
         )
       })
       .map((obj) => {
-        return <User key={obj.id} {...obj} />
+        return (
+          <User
+            isInvited={invites.includes(obj.id)}
+            key={obj.id}
+            {...obj}
+            onClick={onClick}
+          />
+        )
       })
   }
 
