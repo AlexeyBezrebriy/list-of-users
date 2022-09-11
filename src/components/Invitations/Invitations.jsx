@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import Users from "../Users/Users"
+import Success from "./../Success/Success"
 import "./Invitations.css"
 
 function Invitations() {
@@ -7,6 +8,7 @@ function Invitations() {
 
   const [users, setUsers] = useState([])
   const [invites, setInvites] = useState([])
+  const [success, setSuccess] = useState(false)
   const [isLoading, setLoading] = useState(true)
   const [searchValue, setSearchValue] = useState("")
 
@@ -30,25 +32,41 @@ function Invitations() {
     }
   }
 
+  function onClickSendInvites() {
+    if (invites.length) {
+      setSuccess(true)
+    }
+  }
+
   return (
     <div className="invitations__container">
-      <input
-        className="search-bar"
-        type="search"
-        onChange={onChangeSearchValue}
-        placeholder="Search user"
-        autoFocus
-        required
-      />
-      <Users
-        usersData={users}
-        isLoading={isLoading}
-        searchValue={searchValue}
-        invites={invites}
-        onClick={onClickInvite}
-      />
-      <button className="invitations__submit button">Send invitation</button>
-      {/* <Success /> */}
+      {success ? (
+        <Success count={invites.length} />
+      ) : (
+        <>
+          <input
+            className="search-bar"
+            type="search"
+            onChange={onChangeSearchValue}
+            placeholder="Search user"
+            autoFocus
+            required
+          />
+          <Users
+            usersData={users}
+            isLoading={isLoading}
+            searchValue={searchValue}
+            invites={invites}
+            onClick={onClickInvite}
+          />
+          <button
+            onClick={onClickSendInvites}
+            className="invitations__submit button"
+          >
+            Send invitation
+          </button>
+        </>
+      )}
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import logo from "../../img/success.png"
 import "./Success.css"
 
-const Success = () => {
+const Success = ({ count }) => {
   return (
     <div className="success__container">
       <div className="success__logo">
@@ -9,7 +9,7 @@ const Success = () => {
       </div>
       <div className="success__inform">
         <h2>Congratulation</h2>
-        <p>your invites are sended</p>
+        <p>your invites are sended for {count} users</p>
       </div>
       <a href="/" className="back-btn button">
         Back
